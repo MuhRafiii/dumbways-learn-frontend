@@ -1,21 +1,21 @@
-import React from "react";
 import "./App.css";
-import ToDoList from "./components/ToDoList";
+import laptop from "./assets/laptop.png";
+import printer from "./assets/printer.png";
+import router from "./assets/router.png";
+import Card from "./components/ProductCard";
 
-const App: React.FC = () => {
-  // Dummy Data
-  const todos = [
-    { id: 1, title: "List Pertama", completed: false },
-    { id: 2, title: "List Kedua", completed: false },
-    { id: 3, title: "List Ketiga", completed: false },
-  ];
-
+function App() {
   return (
-    <div>
-      <h1>Todo List</h1>
-      <ToDoList todos={todos} />
-    </div>
+    <>
+      <div>
+        <ul className="list">
+          <Card name="Product 1" price={100000} image={laptop} />
+          <Card name="Product 2" price={200000} image={router} />
+          <Card name="Product 3" price={300000} image={printer} />
+        </ul>
+      </div>
+    </>
   );
-};
+}
 
 export default App;

@@ -20,7 +20,8 @@
 
 .list {
   list-style: none;
-  text-align: start;
+  display: flex;
+  gap: 16px;
 }
 
 @keyframes logo-spin {
