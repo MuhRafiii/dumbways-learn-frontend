@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+.completed {
+  cursor: pointer;
+  text-decoration: line-through;
+  color: gray;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: all 0.3s;
+}
