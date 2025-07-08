@@ -1,18 +1,20 @@
-Day 1 - React Basic Setup & Component Fundamentals - Checkpoint 2
+Day 2 - State Management, Hooks, Controlled Form, dan API Integration - Checkpoint 1
 
-Challange 2:
+(Case Weather App)
 
-- Buat project baru dengan tema Product List
-- Buat komponen ProductCard dengan props (name, price, image)
-- Tambahkan toggle button untuk menambahkan item ke cart
-- Implementasikan state untuk jumlah item yang ditambahkan ke cart
-- Tambahkan counter jumlah produk yang ditambahkan ke cart menggunakan state
-- Implementasikan conditional rendering untuk mengubah tampilan toggle button saat item ditambahkan ke cart (misalnya, tombol berubah warna dan teks menjadi “Added”)
+Checkpoint 1:
 
-Detail Challange 2 :
+- Penerapan `useState` pada controlled form
+- Controlled Form (input yang dikontrol oleh state)
+- Event Handling (onClick, onChange) pada sebuah button atau form input
+- Debouncing concept pada sebuah form input pencarian
+- API Fetching dengan `useEffect`
+  Detail Checkpoint 1:
 
-- Buat komponen ProductCard dengan props name, price, dan image
-- Tambahkan toggle button untuk menambahkan item ke cart
-- Implementasikan state untuk jumlah item yang ditambahkan ke cart
-- Tambahkan counter produk untuk menghitung jumlah produk yang ditambahkan ke keranjang (cart)
-- Gunakan conditional rendering untuk mengubah tampilan tombol ketika item sudah masuk ke cart
+- Buat project dengan tema Weather App
+- Buat form input untuk kota (menggunakan controlled form dengan `useState`)
+- Fetch data cuaca dari API berdasarkan input kota dan tampilkan hasilnya
+- Implementasikan loading dan error state:
+  - Loading state saat fetch data berjalan
+  - Pesan error jika fetch gagal atau input kosong
+- Implementasikan debouncing pada input kota untuk mengoptimalkan API fetch ketika user mengetik
