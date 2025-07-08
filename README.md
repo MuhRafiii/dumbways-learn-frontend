@@ -1,20 +1,17 @@
-Day 2 - State Management, Hooks, Controlled Form, dan API Integration - Checkpoint 1
+Day 2 - State Management, Hooks, Controlled Form, dan API Integration - Checkpoint 2
 
-(Case Weather App)
+(Case Product List)
 
-Checkpoint 1:
+Checkpoint 2:
 
-- Penerapan `useState` pada controlled form
-- Controlled Form (input yang dikontrol oleh state)
-- Event Handling (onClick, onChange) pada sebuah button atau form input
-- Debouncing concept pada sebuah form input pencarian
-- API Fetching dengan `useEffect`
-  Detail Checkpoint 1:
+- Buat project dengan tema Search Product
+- Buat komponen input untuk mencari produk (menggunakan controlled input dengan state)
+- Implementasikan debouncing untuk menghindari fetch API berlebihan saat user mengetik
+- Fetch data produk dari API berdasarkan input pencarian
 
-- Buat project dengan tema Weather App
-- Buat form input untuk kota (menggunakan controlled form dengan `useState`)
-- Fetch data cuaca dari API berdasarkan input kota dan tampilkan hasilnya
-- Implementasikan loading dan error state:
-  - Loading state saat fetch data berjalan
-  - Pesan error jika fetch gagal atau input kosong
-- Implementasikan debouncing pada input kota untuk mengoptimalkan API fetch ketika user mengetik
+Checkpoint 2 Detail :
+
+- Buat controlled input untuk input pencarian produk
+- Implementasikan debouncing pada input agar API tidak dipanggil berlebihan
+- Fetch data produk dari API berdasarkan input
+- Tampilkan loading state saat fetch berjalan dan pesan jika hasil pencarian kosong
