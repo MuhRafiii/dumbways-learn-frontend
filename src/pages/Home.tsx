@@ -1,8 +1,11 @@
-export default function Home() {
+import { Navbar } from "@/components/Navbar";
+
+export function Home() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold mb-4">Home Page</h1>
-      <p>Welcome to the Home page.</p>
+    <div className="flex flex-col gap-10 items-center">
+      <Navbar />
+      <h2 className="text-4xl font-bold">Home Page</h2>
+      <p>This is the Home page. Click on a post to see its details.</p>
     </div>
   );
 }

@@ -1,31 +1,19 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Button } from "./components/ui/button";
-import About from "./pages/About";
-import Home from "./pages/Home";
-import Post from "./pages/Post";
-import PostDetail from "./pages/PostDetail";
+import { Cart } from "./pages/Cart";
+import { Home } from "./pages/Home";
+import { ProductDetail } from "./pages/ProductDetail";
+import { Products } from "./pages/Products";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="w-full flex gap-4 p-4 justify-center border-b mb-8">
-        <Button asChild variant="outline" className="focus:bg-slate-400">
-          <Link to="/">Home</Link>
-        </Button>
-        <Button asChild variant="outline" className="focus:bg-slate-400">
-          <Link to="/about">About</Link>
-        </Button>
-        <Button asChild variant="outline" className="focus:bg-slate-400">
-          <Link to="/post">Post</Link>
-        </Button>
-      </div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/post" element={<Post />}>
-          <Route path=":postId" element={<PostDetail />} />
+        <Route path="/products" element={<Products />}>
+          <Route path=":id" element={<ProductDetail />} />
         </Route>
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );
