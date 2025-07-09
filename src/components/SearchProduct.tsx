@@ -6,7 +6,7 @@ import "./components.css";
 export function SearchProduct() {
   const [input, setInput] = useState("");
   const debouncedInput = useDebounce(input, 500);
-  const [products, setProducts] = useState<typeof dummyProducts>([]);
+  const [products, setProducts] = useState(dummyProducts);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -23,6 +23,10 @@ export function SearchProduct() {
     });
   }, [debouncedInput]);
 
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
+
   return (
     <div className="home">
       <h2>Search Product</h2>
@@ -31,7 +35,7 @@ export function SearchProduct() {
         type="text"
         placeholder="Cari produk..."
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={handleOnChange}
       />
 
       {loading && <p>Loading...</p>}
