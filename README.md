@@ -1,4 +1,4 @@
-Day 4 - Checkpoint 1
+Day 4 - Advanced Styling, Authentication, Private Route, dan Data Fetching - Checkpoint 1
 
 Challange:
 
