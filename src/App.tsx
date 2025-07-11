@@ -6,7 +6,7 @@ import PrivateRoute from "./lib/PrivateRoute";
 import ThemeToggle from "./lib/ThemeToggle";
 import { Dashboard } from "./pages/Dashboard";
 import Login from "./pages/Login";
-import Products from "./pages/Products";
+import Movies from "./pages/Movies";
 
 function Header() {
   const { token, logout } = useAuth();
@@ -21,7 +21,7 @@ function Header() {
 
       {token && (
         <Button asChild variant="outline">
-          <Link to="/products">Products</Link>
+          <Link to="/movies">Movies</Link>
         </Button>
       )}
 
@@ -55,10 +55,10 @@ function App() {
             }
           ></Route>
           <Route
-            path="/products"
+            path="/movies"
             element={
               <PrivateRoute>
-                <Products />
+                <Movies />
               </PrivateRoute>
             }
           ></Route>
