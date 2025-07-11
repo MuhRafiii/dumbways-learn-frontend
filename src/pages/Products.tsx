@@ -1,50 +1,115 @@
-import { Navbar } from "@/components/Navbar";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { formatRupiah } from "@/helpers/formatRupiah";
-import { products } from "@/lib/utils";
-import { Link, Outlet } from "react-router-dom";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import type { ProductType } from "@/types/ProductType";
+import { useEffect, useState } from "react";
+import { api } from "../services/api";
 
-export function Products() {
+export default function Products() {
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
+    null
+  );
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await api.get("/products");
+        setProducts(res.data);
+      } catch (err) {
+        console.error("Gagal fetch data products", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
-    <div className="flex flex-col gap-10 items-center">
-      <Navbar />
-      <h2 className="text-4xl font-bold">Products Page</h2>
-      <p>This is the Products page. Click on a product to see its details.</p>
-      <div className="w-10/12 flex flex-col items-center gap-4 bg-slate-300 rounded-lg shadow-lg p-8">
-        <h4 className="text-3xl font-semibold mb-4">Products List</h4>
-        <ul className="mb-4 flex flex-wrap gap-8 justify-center">
+    <div className="p-4">
+      <h1 className="text-4xl font-bold mb-4 text-center">Products</h1>
+
+      {loading ? (
+        <p className="text-center">Loading...</p>
+      ) : (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
           {products.map((product) => (
-            <li key={product.id} className="shadow-lg">
-              <Link to={product.id.toString()}>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Card className="w-60 hover:scale-105 transition duration-300">
-                      <CardHeader>
-                        <CardTitle>{product.name}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="flex flex-col items-center gap-4">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-30 h-30"
-                        />
-                        <p>
-                          <span className="font-semibold">Price: </span>
-                          {formatRupiah(product.price)}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <Outlet />
-                  </DialogContent>
-                </Dialog>
-              </Link>
-            </li>
+            <Dialog key={product.id}>
+              <DialogTrigger asChild>
+                <Card
+                  onClick={() => setSelectedProduct(product)}
+                  className="cursor-pointer hover:shadow-md transition"
+                >
+                  <CardHeader>
+                    <CardTitle>{product.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex flex-col items-center gap-4">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-50 h-50"
+                    />
+                    <p>
+                      <span className="font-bold">Price: </span>${product.price}
+                    </p>
+                    <CardDescription className="text-justify line-clamp-3">
+                      {product.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </DialogTrigger>
+
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>{selectedProduct?.title}</DialogTitle>
+                </DialogHeader>
+                <div className="flex flex-col items-center">
+                  <img
+                    src={selectedProduct?.image}
+                    alt={selectedProduct?.title}
+                    className="w-50 h-50"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <p>
+                    <span className="font-bold">Price: </span>$
+                    {selectedProduct?.price}
+                  </p>
+                  <p>
+                    <span className="font-bold">Category: </span>
+                    {selectedProduct?.category}
+                  </p>
+                  <p>
+                    <span className="font-bold">Rating: </span>
+                    {selectedProduct?.rating.rate}
+                  </p>
+                  <p>
+                    <span className="font-bold">Count: </span>
+                    {selectedProduct?.rating.count}
+                  </p>
+                </div>
+                <DialogDescription className="text-justify">
+                  {selectedProduct?.description}
+                </DialogDescription>
+              </DialogContent>
+            </Dialog>
           ))}
         </ul>
-      </div>
+      )}
     </div>
   );
 }

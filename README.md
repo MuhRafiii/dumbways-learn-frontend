@@ -1,16 +1,10 @@
-Day 3 - Routing, TailwindCSS, dan ShadCN UI Components - Checkpoint 2
+Day 4 - Checkpoint 1
 
-Challange 2:
+Challange:
 
-- Buat project baru dengan tema E-Commerce Store
-- Implementasi routing halaman Home, Products, dan Cart
-- Tambahkan styling Tailwind untuk header dan card produk
-- Buat tombol navigasi menggunakan ShadCN UI Button
-- Implementasikan dynamic route untuk Product Detail
-
-Detail Challange 2:
-
-- Implementasi routing halaman Home, Products, dan Cart
-- Tambahkan styling Tailwind pada header dan card produk
-- Gunakan ShadCN UI Button untuk navigasi antar halaman
-- Tambahkan Dynamic Route untuk Product Detail dan tampilkan informasi detail produk
+- Buat project dengan tema Product Catalog
+- Styling halaman produk menggunakan Tailwind CSS dan ShadCN UI (grid layout)
+- Fetch data produk dari API dan tampilkan produk dalam grid
+- Buat halaman Dashboard yang hanya bisa diakses user yang sudah login (menggunakan Private Route)
+- Tambahkan simulasi login dan logout menggunakan AuthContext
+- pindahkan type ke dalam folder tersendiri

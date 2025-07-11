@@ -1,21 +1,70 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import { Cart } from "./pages/Cart";
-import { Home } from "./pages/Home";
-import { ProductDetail } from "./pages/ProductDetail";
-import { Products } from "./pages/Products";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { Button } from "./components/ui/button";
+import { AuthProvider } from "./contexts/AuthProvider";
+import { useAuth } from "./hooks/useAuth";
+import PrivateRoute from "./lib/PrivateRoute";
+import ThemeToggle from "./lib/ThemeToggle";
+import { Dashboard } from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Products from "./pages/Products";
+
+function Header() {
+  const { token, logout } = useAuth();
+
+  return (
+    <div className="w-full flex flex-wrap gap-4 p-4 justify-center border-b mb-4 bg-white dark:bg-zinc-900">
+      {token && (
+        <Button asChild variant="outline">
+          <Link to="/">Dashboard</Link>
+        </Button>
+      )}
+
+      {token && (
+        <Button asChild variant="outline">
+          <Link to="/products">Products</Link>
+        </Button>
+      )}
+
+      {token ? (
+        <Button onClick={logout} variant="destructive">
+          Logout
+        </Button>
+      ) : (
+        <Button asChild variant="outline">
+          <Link to="/login">Login</Link>
+        </Button>
+      )}
+      <ThemeToggle />
+    </div>
+  );
+}
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />}>
-          <Route path=":id" element={<ProductDetail />} />
-        </Route>
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          ></Route>
+          <Route
+            path="/products"
+            element={
+              <PrivateRoute>
+                <Products />
+              </PrivateRoute>
+            }
+          ></Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
