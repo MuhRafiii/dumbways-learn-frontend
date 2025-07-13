@@ -1,19 +1,16 @@
-Day 5 - React Context, Global State Management, dan CRUD Operation - Checkpoint 1
+Day 5 - React Context, Global State Management, dan CRUD Operation - Checkpoint 2
 
-Checkpoint 1:
+Challange 2:
 
-- React Context API untuk Global State Management
-  - Membuat `Context` dan `Provider`
-  - Mengakses state dari komponen mana saja dengan `useContext`
-- CRUD Operation pada aplikasi React
-  - Create, Read, Update, dan Delete dengan local state
-  - Implementasi controlled form untuk Create dan Update
-  - Penyimpanan data sementara di local state
+- Buat project dengan tema Cart Management
+- Gunakan React Context API untuk global state cart
+- Tambahkan fitur Add to Cart, Update Quantity, dan Remove Item dari cart
+- Implementasikan Optimistic Update saat mengubah jumlah produk
+- Tambahkan loading state untuk simulasi API call pada setiap operasi
 
-Detail Checkpoint 1:
+Detail Challange 2:
 
-- Buat project To-Do App dengan Global State menggunakan React Context
-- Tambahkan fitur Create, Read, Update, dan Delete to-do dengan React Context
-- Implementasikan controlled form untuk input to-do baru (day 2)
-- Tambahkan loading state pada setiap operasi CRUD (Create, Update, dan Delete) (day 2)
-- Optimistic update: tampilkan perubahan UI langsung tanpa menunggu respon server
+- Implementasikan React Context API untuk mengelola state cart secara global
+- Tambahkan fitur CRUD pada cart (Add to Cart, Update Quantity, dan Remove Item)
+- Simulasi API call dengan delay dan loading state untuk operasi CRUD
+- Implementasikan Optimistic Update agar UI langsung merespon perubahan tanpa menunggu API
