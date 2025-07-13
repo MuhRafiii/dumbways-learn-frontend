@@ -1,15 +1,19 @@
-Day 4 - Advanced Styling, Authentication, Private Route, dan Data Fetching - Checkpoint 2
+Day 5 - React Context, Global State Management, dan CRUD Operation - Checkpoint 1
 
-Challange:
+Checkpoint 1:
 
-- Buat project dengan tema Movie List
-- Fetch data dari API film (fake API) dan tampilkan dalam grid
-- Styling card movie menggunakan Tailwind CSS dan ShadCN UI
-- Buat halaman Favorites yang hanya bisa diakses jika user login (Private Route)
-- Implementasi simulasi token login/logout dan penyimpanan token di Local Storage
+- React Context API untuk Global State Management
+  - Membuat `Context` dan `Provider`
+  - Mengakses state dari komponen mana saja dengan `useContext`
+- CRUD Operation pada aplikasi React
+  - Create, Read, Update, dan Delete dengan local state
+  - Implementasi controlled form untuk Create dan Update
+  - Penyimpanan data sementara di local state
 
-Detail Challange:
+Detail Checkpoint 1:
 
-- Fetch data movie dari API dan tampilkan dalam grid
-- Styling grid movie dengan Tailwind
-- Implementasikan Private Route pada halaman Favorites (dengan simulasi login/logout)
+- Buat project To-Do App dengan Global State menggunakan React Context
+- Tambahkan fitur Create, Read, Update, dan Delete to-do dengan React Context
+- Implementasikan controlled form untuk input to-do baru (day 2)
+- Tambahkan loading state pada setiap operasi CRUD (Create, Update, dan Delete) (day 2)
+- Optimistic update: tampilkan perubahan UI langsung tanpa menunggu respon server
